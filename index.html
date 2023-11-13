@@ -6,14 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Test menu</title>
     <script defer src="https://unpkg.com/alpinejs"></script>
+    <style>
+      .menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #ffff;
+        display: grid;
+        place-content: center;
+      }
+      .header_menuBtn{
+        position: relative;
+        z-index: 10;
+      }
+    </style>
   </head>
   <body>
     <!-- https://emmet.io/ -->
     <!-- header>h1{Test de menu} -->
     <header>
-      <button aria-controls="mainNav" @click="menuIsOpen = ! menuIsOpen"  >menu</button>
+      <button aria-controls="mainNav" @click="menuIsOpen = ! menuIsOpen" class="header_menuBtn" >menu</button>
       <h1>Test de menu</h1>
-      <nav id="mainNav" x-show="menuIsOpen" x-transition.duration.800ms>
+      <nav id="mainNav" x-show="menuIsOpen" x-transition.duration.800ms class="menu">
         <ul>
           <li><a href="#">item 1</a></li>
           <li><a href="#">item 2</a></li>
